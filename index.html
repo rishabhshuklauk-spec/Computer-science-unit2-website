@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR GCSE Computer Science Unit 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <div class="logo">Unit 2 Revision</div>
+    <div class="nav-links">
+        <button id="btnHome" class="nav-btn active">Learn</button>
+        <button id="btnAscii" class="nav-btn">ASCII</button>
+        <button id="btnConverter" class="nav-btn">Converter</button>
+        <button id="btnQuiz" class="nav-btn">Quiz</button>
+    </div>
+</nav>
+
+<main>
+    <section id="viewHome" class="view active-view">
+        <h1>Data Representation</h1>
+
+        <div class="masonry-layout">
+            <div class="layout-col">
+                <div class="card">
+                    <h2>Interactive 8-Bit Flipper</h2>
+                    <p>Click the bits below to toggle them between 0 and 1. Watch how the denary total changes!</p>
+                    <div class="bit-container" id="bitContainer">
+                        <div class="bit-box" data-value="128">
+                            <span class="bit-label">128</span>
+                            <button class="bit-btn">0</button>
+                        </div>
+                        <div class="bit-box" data-value="64">
+                            <span class="bit-label">64</span>
+                            <button class="bit-btn">0</button>
+                        </div>
+                        <div class="bit-box" data-value="32">
+                            <span class="bit-label">32</span>
+                            <button class="bit-btn">0</button>
+                        </div>
+                        <div class="bit-box" data-value="16">
+                            <span class="bit-label">16</span>
+                            <button class="bit-btn">0</button>
+                        </div>
+                        <div class="bit-box" data-value="8">
+                            <span class="bit-label">8</span>
+                            <button class="bit-btn">0</button>
+                        </div>
+                        <div class="bit-box" data-value="4">
+                            <span class="bit-label">4</span>
+                            <button class="bit-btn">0</button>
+                        </div>
+                        <div class="bit-box" data-value="2">
+                            <span class="bit-label">2</span>
+                            <button class="bit-btn">0</button>
+                        </div>
+                        <div class="bit-box" data-value="1">
+                            <span class="bit-label">1</span>
+                            <button class="bit-btn">0</button>
+                        </div>
+                    </div>
+                    <div class="bit-total">
+                        Denary Value: <span id="interactiveTotal">0</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Hex & Nibble Splitter</h2>
+                    <p>A hex digit represents exactly 4 bits (a nibble). Toggle the bits to see how two hex digits make a full 8-bit byte.</p>
+                    <div class="nibble-wrapper">
+                        <div class="nibble-section">
+                            <div class="bit-container nibble-container" id="highNibble">
+                                <div class="bit-box" data-value="8">
+                                    <span class="bit-label">8</span>
+                                    <button class="hex-bit-btn">0</button>
+                                </div>
+                                <div class="bit-box" data-value="4">
+                                    <span class="bit-label">4</span>
+                                    <button class="hex-bit-btn">0</button>
+                                </div>
+                                <div class="bit-box" data-value="2">
+                                    <span class="bit-label">2</span>
+                                    <button class="hex-bit-btn">0</button>
+                                </div>
+                                <div class="bit-box" data-value="1">
+                                    <span class="bit-label">1</span>
+                                    <button class="hex-bit-btn">0</button>
+                                </div>
+                            </div>
+                            <div class="nibble-result">Hex: <span id="highHexValue">0</span></div>
+                        </div>
+
+                        <div class="nibble-section">
+                            <div class="bit-container nibble-container" id="lowNibble">
+                                <div class="bit-box" data-value="8">
+                                    <span class="bit-label">8</span>
+                                    <button class="hex-bit-btn">0</button>
+                                </div>
+                                <div class="bit-box" data-value="4">
+                                    <span class="bit-label">4</span>
+                                    <button class="hex-bit-btn">0</button>
+                                </div>
+                                <div class="bit-box" data-value="2">
+                                    <span class="bit-label">2</span>
+                                    <button class="hex-bit-btn">0</button>
+                                </div>
+                                <div class="bit-box" data-value="1">
+                                    <span class="bit-label">1</span>
+                                    <button class="hex-bit-btn">0</button>
+                                </div>
+                            </div>
+                            <div class="nibble-result">Hex: <span id="lowHexValue">0</span></div>
+                        </div>
+                    </div>
+                    <div class="bit-total">
+                        Combined Hex: <span id="combinedHexValue">00</span>
+                    </div>
+                    <div class="bit-total" style="margin-top: 10px;">
+                        Combined Denary: <span id="combinedDenaryValue">0</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Units of Data Storage</h2>
+                    <p>The byte is the smallest addressable unit of memory in a computer. Memory size is measured in multiples. A Kilobyte (KB) is 1,000 bytes. This scales up to Megabyte (MB), Gigabyte (GB), Terabyte (TB), and Petabyte (PB).</p>
+                </div>
+
+                <div class="card">
+                    <h2>Sound</h2>
+                    <p>Sound waves are analogue and have to be stored in a digital format as a series of binary numbers. The sample resolution is the number of bits used to store each sample. The sample rate is the frequency with which you record the amplitude of the sound, measured in Hertz. The file size of a sound file = sample rate x sample resolution x seconds.</p>
+                </div>
+            </div>
+
+            <div class="layout-col">
+                <div class="card">
+                    <h2>Hexadecimal Rules</h2>
+                    <p>Hexadecimal (Base 16) uses letters A to F to represent the digits 10 to 15. Every 4 bits (a nibble) directly translates to a single hex digit. 1111 in binary is F in Hex.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Binary Shifts</h2>
+                    <p>If a binary number is shifted to the left this is equivalent to multiplying the number by 2 for each shift to the left. Shifting binary numbers to the right has the opposite effect i.e. each shift to the right has the affect of dividing by 2.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Overflow Errors</h2>
+                    <p>The biggest number you can represent with 8 bits is 255. If you add two binary numbers together that result in a number bigger than 255, it will need 9 or more bits. A computer stores things in memory in a finite amount of space. If you cannot represent the number in that amount of space because it is too big, then overflow occurs.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Images</h2>
+                    <p>A vector graphic is made up of lines and shapes with specific properties. A bitmap image is broken down into very small elements called pixels. The number of bits used to store each pixel dictates how many colours an image can contain, which is referred to as the colour depth.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Compression</h2>
+                    <p>Compression is used to reduce the amount of storage needed and allow a file to be transmitted in less time. Lossy compression is where files are compressed by removing some of the detail, which is used for images, audio, and video. Lossless compression means no data is lost, which is an essential factor for text and data files.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="viewAscii" class="view hidden-view">
+        <h1>ASCII & Character Sets</h1>
+
+        <div class="masonry-layout">
+            <div class="layout-col">
+                <div class="card">
+                    <h2>Live Text to Binary Translator</h2>
+                    <p>Type any text below to see how a computer stores those characters in denary (ASCII code) and binary.</p>
+                    <div class="input-group">
+                        <label for="asciiTextInput">Text Input</label>
+                        <input type="text" id="asciiTextInput" placeholder="e.g., Computer">
+                    </div>
+                    <div class="input-group">
+                        <label for="asciiDecOutput">ASCII Decimal Code</label>
+                        <textarea id="asciiDecOutput" readonly rows="2" class="code-area"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="asciiBinOutput">Binary Representation</label>
+                        <textarea id="asciiBinOutput" readonly rows="3" class="code-area"></textarea>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Common ASCII Values Cheat Sheet</h2>
+                    <p>In the exam, character codes are grouped and run in sequence. If 'A' is 65, 'B' is 66, and 'C' is 67.</p>
+                    <div class="help-box">
+                        <div class="hex-table">
+                            <span>'A' = 65</span><span>'B' = 66</span><span>'Z' = 90</span>
+                        </div>
+                        <div class="help-divider"></div>
+                        <div class="hex-table">
+                            <span>'a' = 97</span><span>'b' = 98</span><span>'z' = 122</span>
+                        </div>
+                        <div class="help-divider"></div>
+                        <div class="hex-table">
+                            <span>'0' = 48</span><span>'1' = 49</span><span>'9' = 57</span>
+                        </div>
+                        <div class="help-divider"></div>
+                        <div class="hex-table">
+                            <span style="color:var(--text-muted)">Space = 32</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-col">
+                <div class="card">
+                    <h2>Character Sets</h2>
+                    <p>Every time a character is typed on a keyboard a code number is transmitted to the computer. The basic ASCII codes use 7 bits for each character. This gives a total of 128 possible unique symbols.</p>
+                    <p>Unicode is the new standard for representing the characters of all the languages of the world. 16-Bit Unicode uses twice as many bits per character as extended ASCII and can represent 65,536 unique characters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="viewConverter" class="view hidden-view">
+        <div class="converter-container">
+            <h1>Base Converter</h1>
+            <div class="input-group">
+                <label for="denaryInput">Denary (Base 10)</label>
+                <input type="number" id="denaryInput">
+            </div>
+            <div class="input-group">
+                <label for="binaryInput">Binary (Base 2)</label>
+                <input type="text" id="binaryInput">
+            </div>
+            <div class="input-group">
+                <label for="hexInput">Hexadecimal (Base 16)</label>
+                <input type="text" id="hexInput">
+            </div>
+            <button id="clearBtn" class="primary-btn">Clear</button>
+        </div>
+    </section>
+
+    <section id="viewQuiz" class="view hidden-view">
+        <div class="quiz-container">
+            <h1>Revision Quiz</h1>
+
+            <div id="quizSetup">
+                <h2>Quiz Settings</h2>
+
+                <div class="setting-group mode-selector">
+                    <label>Quiz Mode:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="modeDynamic" name="quizMode" value="dynamic" checked>
+                        <label for="modeDynamic" class="radio-label">Simple Conversions</label>
+                        <input type="radio" id="modeTextbook" name="quizMode" value="textbook">
+                        <label for="modeTextbook" class="radio-label">Textbook Questions</label>
+                    </div>
+                </div>
+
+                <div id="dynamicSettings">
+                    <div class="setting-group">
+                        <label>Select Conversion Types:</label>
+                        <div class="cb-container">
+                            <div class="custom-cb">
+                                <input type="checkbox" id="typeDenToBin" checked hidden>
+                                <label for="typeDenToBin" class="cb-btn">Denary ↔ Binary</label>
+                            </div>
+                            <div class="custom-cb">
+                                <input type="checkbox" id="typeDenToHex" checked hidden>
+                                <label for="typeDenToHex" class="cb-btn">Denary ↔ Hex</label>
+                            </div>
+                            <div class="custom-cb">
+                                <input type="checkbox" id="typeBinToHex" checked hidden>
+                                <label for="typeBinToHex" class="cb-btn">Binary ↔ Hex</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-group">
+                        <label for="questionCount">Number of Questions:</label>
+                        <input type="number" id="questionCount" value="5" min="1" max="20">
+                    </div>
+                </div>
+
+                <button id="startQuizBtn" class="primary-btn">Start Quiz</button>
+                <p id="setupError" style="color:var(--accent); display:none;">Please select at least one type!</p>
+            </div>
+
+            <div id="quizContent" class="hidden-view">
+                <h2 id="questionText"></h2>
+                <input type="text" id="quizAnswer" autocomplete="off">
+                <p id="inputWarning" class="warning-text"></p>
+                <div class="action-buttons">
+                    <button id="submitAnswer" class="primary-btn">Submit</button>
+                    <button id="continueBtn" class="primary-btn hidden-view">Continue</button>
+                    <button id="helpBtn" class="secondary-btn">Need Help?</button>
+                </div>
+                <div id="helpPanel" class="hidden-view help-box">
+                    <div class="bin-table">
+                        <span>128</span><span>64</span><span>32</span><span>16</span><span>8</span><span>4</span><span>2</span><span>1</span>
+                    </div>
+                    <div class="help-divider"></div>
+                    <div class="hex-table">
+                        <span>A=10</span><span>B=11</span><span>C=12</span><span>D=13</span><span>E=14</span><span>F=15</span>
+                    </div>
+                </div>
+                <p id="quizFeedback"></p>
+                <p id="quizExplanation" class="explanation-text"></p>
+            </div>
+
+            <div id="quizResults" class="hidden-view">
+                <h2>Quiz Complete!</h2>
+                <p id="scoreText"></p>
+                <button id="restartQuiz" class="primary-btn">New Quiz</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
