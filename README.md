@@ -1,1 +1,1 @@
-A custom website for GCSE students to help them revise converisions and other unit 2 questions.
+A custom website for GCSE students to help them revise converisions and other unit 2 questions. I have used information from the textbook and attempted to use the colours of hackatime for this project.
