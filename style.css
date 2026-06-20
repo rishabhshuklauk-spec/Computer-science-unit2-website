@@ -178,7 +178,7 @@ input[type="number"], input[type="text"], .code-area {
 
 .code-area {
     resize: none;
-    font-family: monospace;
+    font-family: 'Bahnschrift', sans-serif;
     font-size: 1.1rem;
     color: var(--accent);
 }
@@ -345,7 +345,7 @@ input[type="checkbox"]:checked + .cb-btn {
 }
 
 .hex-table {
-    font-family: monospace;
+    font-family: 'Bahnschrift', sans-serif;
     color: var(--text-main);
 }
 
@@ -450,4 +450,107 @@ input[type="checkbox"]:checked + .cb-btn {
 
 .nibble-result span {
     color: var(--accent);
+}
+
+.ascii-table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+
+.ascii-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.ascii-table th {
+    background-color: var(--bg-input);
+    color: var(--text-muted);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.ascii-table td {
+    padding: 8px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-family: 'Bahnschrift', sans-serif;
+}
+
+.ascii-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.ascii-table td:last-child {
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Hide Number Input Arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .nav-btn {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+    }
+    main {
+        padding: 20px 10px;
+    }
+    .card, .converter-container, .quiz-container {
+        padding: 20px 15px;
+    }
+    .bit-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .nibble-wrapper {
+        flex-direction: column;
+    }
+    .nibble-section {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .nibble-container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .bit-btn, .hex-bit-btn {
+        width: 35px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    .radio-group {
+        flex-direction: column;
+    }
+    .cb-container {
+        flex-direction: column;
+    }
 }

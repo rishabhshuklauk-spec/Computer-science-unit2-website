@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-    <div class="logo">Unit 2 Revision</div>
-    <div class="nav-links">
-        <button id="btnHome" class="nav-btn active">Learn</button>
-        <button id="btnAscii" class="nav-btn">ASCII</button>
-        <button id="btnConverter" class="nav-btn">Converter</button>
-        <button id="btnQuiz" class="nav-btn">Quiz</button>
-    </div>
-</nav>
+    <nav>
+        <div class="logo">OCR GCSE (J277) Unit 2 Revision helper</div>
+        <div class="nav-links" style="display:flex; align-items:center;">
+            <button id="btnHome" class="nav-btn active">Learn</button>
+            <button id="btnAscii" class="nav-btn">ASCII</button>
+            <button id="btnConverter" class="nav-btn">Tools</button>
+            <button id="btnQuiz" class="nav-btn">Quiz</button>
+            <div style="width:1px; height:24px; background:rgba(255,255,255,0.3); margin:0 15px;"></div>
+            <a href="https://www.ocr.org.uk/Images/558027-specification-gcse-computer-science-j277.pdf" target="_blank" style="color:#ffffff; text-decoration:none; font-family:'Bahnschrift', sans-serif; font-size:1rem; padding:8px 12px; border-radius:4px; transition:background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">J277 Spec (External link)</a>
+        </div>
+    </nav>
 
-<main>
+
+
+    <main>
     <section id="viewHome" class="view active-view">
         <h1>Data Representation</h1>
 
@@ -127,8 +131,28 @@
                 </div>
 
                 <div class="card">
-                    <h2>Sound</h2>
-                    <p>Sound waves are analogue and have to be stored in a digital format as a series of binary numbers. The sample resolution is the number of bits used to store each sample. The sample rate is the frequency with which you record the amplitude of the sound, measured in Hertz. The file size of a sound file = sample rate x sample resolution x seconds.</p>
+                    <h2>Sound & Metadata</h2>
+                    <p>Sound waves are analogue and have to be stored in a digital format as a series of binary numbers. The sample resolution (bit depth) is the number of bits used to store each sample. The sample rate is the frequency with which you record the amplitude of the sound, measured in Hertz.</p>
+                    <p><strong>Metadata</strong> is data about data. For sound files, metadata can include details such as the artist, track title, album, and duration.</p>
+                    <div class="converter-container" style="padding:15px; margin-top:15px; max-width:100%;">
+                        <h3 style="margin-top:0; color:var(--text-main); font-size:1rem;">Sound Size Calculator</h3>
+                        <div class="input-group">
+                            <label>Sample Rate (Hz)</label>
+                            <input type="number" id="soundRateInput" value="44100">
+                        </div>
+                        <div class="input-group">
+                            <label>Bit Depth (bits)</label>
+                            <input type="number" id="soundDepthInput" value="16">
+                        </div>
+                        <div class="input-group">
+                            <label>Duration (seconds)</label>
+                            <input type="number" id="soundDurationInput" value="5">
+                        </div>
+                        <div class="bit-total" style="font-size:1rem; margin-top:10px;">
+                            <span id="soundBitsOut" style="color:var(--accent);">3528000</span> Bits<br>
+                            <span style="font-size:0.9rem; color:var(--text-muted);">(<span id="soundBytesOut">441000</span> Bytes / <span id="soundKbOut">441</span> KB)</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -141,16 +165,68 @@
                 <div class="card">
                     <h2>Binary Shifts</h2>
                     <p>If a binary number is shifted to the left this is equivalent to multiplying the number by 2 for each shift to the left. Shifting binary numbers to the right has the opposite effect i.e. each shift to the right has the affect of dividing by 2.</p>
+                    <div class="converter-container" style="padding:15px; margin-top:15px; max-width:100%;">
+                        <div class="action-buttons" style="margin-top:0; margin-bottom:15px;">
+                            <button id="shiftLeftBtn" class="primary-btn">&lt;&lt; Shift Left</button>
+                            <button id="shiftRightBtn" class="primary-btn">Shift Right &gt;&gt;</button>
+                        </div>
+                        <div class="bit-container" id="shiftContainer" style="margin-top:0; padding:10px;">
+                            <div class="bit-box" data-value="128"><span class="bit-label">128</span><button class="bit-btn shift-bit-btn">0</button></div>
+                            <div class="bit-box" data-value="64"><span class="bit-label">64</span><button class="bit-btn shift-bit-btn">0</button></div>
+                            <div class="bit-box" data-value="32"><span class="bit-label">32</span><button class="bit-btn shift-bit-btn">0</button></div>
+                            <div class="bit-box" data-value="16"><span class="bit-label">16</span><button class="bit-btn shift-bit-btn">0</button></div>
+                            <div class="bit-box" data-value="8"><span class="bit-label">8</span><button class="bit-btn shift-bit-btn">1</button></div>
+                            <div class="bit-box" data-value="4"><span class="bit-label">4</span><button class="bit-btn shift-bit-btn">0</button></div>
+                            <div class="bit-box" data-value="2"><span class="bit-label">2</span><button class="bit-btn shift-bit-btn">1</button></div>
+                            <div class="bit-box" data-value="1"><span class="bit-label">1</span><button class="bit-btn shift-bit-btn">0</button></div>
+                        </div>
+                        <div class="bit-total" style="font-size:1rem; margin-top:10px; display:flex; justify-content:center; align-items:center;">
+                            Denary Value: <input type="number" id="shiftInput" value="10" min="0" max="255" style="width:70px; margin-left:10px; padding:5px; border-radius:var(--radius); border:1px solid var(--border-color); background:var(--bg-input); color:var(--accent); font-family:'Bahnschrift', sans-serif; text-align:center; font-size:1rem; font-weight:bold;">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card">
                     <h2>Overflow Errors</h2>
                     <p>The biggest number you can represent with 8 bits is 255. If you add two binary numbers together that result in a number bigger than 255, it will need 9 or more bits. A computer stores things in memory in a finite amount of space. If you cannot represent the number in that amount of space because it is too big, then overflow occurs.</p>
+                    <div class="converter-container" style="padding:30px 15px 50px 15px; margin-top:15px; max-width:100%; text-align:center;">
+                        <div style="display:inline-block; text-align:right; font-family:'Bahnschrift', sans-serif; font-size:1.2rem; letter-spacing:2px; position:relative;">
+                            &nbsp;&nbsp;11111111 (255)<br>
+                            + 00000001 (1)<br>
+                            <hr style="border-color:var(--border-color); margin:5px 0;">
+                            <span style="color:var(--accent); font-weight:bold; position:relative;">1
+                                <div style="position:absolute; top:100%; left:50%; transform:translateX(-50%); text-align:center; padding-top:5px;">
+                                    <div style="color:var(--accent); font-weight:bold; font-size:1.4rem; line-height:0.8;">↑</div>
+                                    <div style="color:var(--accent); font-family:'Bahnschrift', sans-serif; font-size:0.8rem; font-weight:bold; white-space:nowrap; letter-spacing:0; margin-top:5px;">9th Bit Overflow!</div>
+                                </div>
+                            </span> 00000000 (256)
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <h2>Images</h2>
-                    <p>A vector graphic is made up of lines and shapes with specific properties. A bitmap image is broken down into very small elements called pixels. The number of bits used to store each pixel dictates how many colours an image can contain, which is referred to as the colour depth.</p>
+                    <h2>Images & Metadata</h2>
+                    <p>A vector graphic is made up of lines and shapes with specific properties. A bitmap image is broken down into very small elements called pixels. The number of bits used to store each pixel dictates how many colours an image can contain, referred to as the colour depth.</p>
+                    <p><strong>Metadata</strong> is data about data. For images, this often includes the file format, resolution (width x height), colour depth, device used to capture, date/time created, and author.</p>
+                    <div class="converter-container" style="padding:15px; margin-top:15px; max-width:100%;">
+                        <h3 style="margin-top:0; color:var(--text-main); font-size:1rem;">Image Size Calculator</h3>
+                        <div class="input-group">
+                            <label>Width (pixels)</label>
+                            <input type="number" id="imgWidthInput" value="600">
+                        </div>
+                        <div class="input-group">
+                            <label>Height (pixels)</label>
+                            <input type="number" id="imgHeightInput" value="400">
+                        </div>
+                        <div class="input-group">
+                            <label>Colour Depth (bits)</label>
+                            <input type="number" id="imgDepthInput" value="8">
+                        </div>
+                        <div class="bit-total" style="font-size:1rem; margin-top:10px;">
+                            <span id="imgBitsOut" style="color:var(--accent);">1920000</span> Bits<br>
+                            <span style="font-size:0.9rem; color:var(--text-muted);">(<span id="imgBytesOut">240000</span> Bytes / <span id="imgKbOut">240</span> KB)</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card">
@@ -212,6 +288,20 @@
                     <p>Every time a character is typed on a keyboard a code number is transmitted to the computer. The basic ASCII codes use 7 bits for each character. This gives a total of 128 possible unique symbols.</p>
                     <p>Unicode is the new standard for representing the characters of all the languages of the world. 16-Bit Unicode uses twice as many bits per character as extended ASCII and can represent 65,536 unique characters.</p>
                 </div>
+
+                <div class="card">
+                    <h2>Full 7-bit ASCII Table</h2>
+                    <div class="ascii-table-container">
+                        <table class="ascii-table">
+                            <thead>
+                                <tr><th>Dec</th><th>Hex</th><th>Bin</th><th>Char</th></tr>
+                            </thead>
+                            <tbody id="asciiTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -242,38 +332,36 @@
             <div id="quizSetup">
                 <h2>Quiz Settings</h2>
 
-                <div class="setting-group mode-selector">
-                    <label>Quiz Mode:</label>
-                    <div class="radio-group">
-                        <input type="radio" id="modeDynamic" name="quizMode" value="dynamic" checked>
-                        <label for="modeDynamic" class="radio-label">Simple Conversions</label>
-                        <input type="radio" id="modeTextbook" name="quizMode" value="textbook">
-                        <label for="modeTextbook" class="radio-label">Textbook Questions</label>
-                    </div>
-                </div>
-
-                <div id="dynamicSettings">
-                    <div class="setting-group">
-                        <label>Select Conversion Types:</label>
-                        <div class="cb-container">
-                            <div class="custom-cb">
-                                <input type="checkbox" id="typeDenToBin" checked hidden>
-                                <label for="typeDenToBin" class="cb-btn">Denary ↔ Binary</label>
-                            </div>
-                            <div class="custom-cb">
-                                <input type="checkbox" id="typeDenToHex" checked hidden>
-                                <label for="typeDenToHex" class="cb-btn">Denary ↔ Hex</label>
-                            </div>
-                            <div class="custom-cb">
-                                <input type="checkbox" id="typeBinToHex" checked hidden>
-                                <label for="typeBinToHex" class="cb-btn">Binary ↔ Hex</label>
-                            </div>
+                <div class="setting-group">
+                    <label>Select Question Types:</label>
+                    <div class="cb-container">
+                        <div class="custom-cb">
+                            <input type="checkbox" id="typeDenToBin" checked hidden>
+                            <label for="typeDenToBin" class="cb-btn">Denary ↔ Binary</label>
+                        </div>
+                        <div class="custom-cb">
+                            <input type="checkbox" id="typeDenToHex" checked hidden>
+                            <label for="typeDenToHex" class="cb-btn">Denary ↔ Hex</label>
+                        </div>
+                        <div class="custom-cb">
+                            <input type="checkbox" id="typeBinToHex" checked hidden>
+                            <label for="typeBinToHex" class="cb-btn">Binary ↔ Hex</label>
                         </div>
                     </div>
-                    <div class="setting-group">
-                        <label for="questionCount">Number of Questions:</label>
-                        <input type="number" id="questionCount" value="5" min="1" max="20">
+                    <div class="cb-container">
+                        <div class="custom-cb">
+                            <input type="checkbox" id="typeImageSize" checked hidden>
+                            <label for="typeImageSize" class="cb-btn">Image Size</label>
+                        </div>
+                        <div class="custom-cb">
+                            <input type="checkbox" id="typeSoundSize" checked hidden>
+                            <label for="typeSoundSize" class="cb-btn">Sound Size</label>
+                        </div>
                     </div>
+                </div>
+                <div class="setting-group">
+                    <label for="questionCount">Number of Questions:</label>
+                    <input type="number" id="questionCount" value="5" min="1" max="20">
                 </div>
 
                 <button id="startQuizBtn" class="primary-btn">Start Quiz</button>

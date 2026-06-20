@@ -28,7 +28,7 @@ btnAscii.addEventListener('click', () => switchView(viewAscii, btnAscii));
 btnConverter.addEventListener('click', () => switchView(viewConverter, btnConverter));
 btnQuiz.addEventListener('click', () => switchView(viewQuiz, btnQuiz));
 
-const bitBtns = document.querySelectorAll('.bit-btn');
+const bitBtns = document.querySelectorAll('#bitContainer .bit-btn');
 const interactiveTotal = document.getElementById('interactiveTotal');
 
 bitBtns.forEach(btn => {
@@ -150,55 +150,7 @@ clearBtn.addEventListener('click', () => {
     hexInput.value = '';
 });
 
-const modeDynamic = document.getElementById('modeDynamic');
-const modeTextbook = document.getElementById('modeTextbook');
-const dynamicSettings = document.getElementById('dynamicSettings');
-
-modeDynamic.addEventListener('change', () => {
-    dynamicSettings.classList.remove('hidden-view');
-});
-
-modeTextbook.addEventListener('change', () => {
-    dynamicSettings.classList.add('hidden-view');
-});
-
-const textbookQuestions = [
-    { question: "Convert the binary value 00011011 into denary.", answer: "27", explanation: "16 + 8 + 2 + 1 = 27", ansType: "den" },
-    { question: "Convert the binary value 11100110 into denary.", answer: "230", explanation: "128 + 64 + 32 + 4 + 2 = 230", ansType: "den" },
-    { question: "Convert the denary value 87 into binary.", answer: "01010111", explanation: "64 + 16 + 4 + 2 + 1 = 87", ansType: "bin" },
-    { question: "Convert the denary value 37 into hexadecimal.", answer: "25", explanation: "37 / 16 = 2 remainder 5.", ansType: "hex" },
-    { question: "Convert the denary value 59 into hexadecimal.", answer: "3B", explanation: "59 / 16 = 3 remainder 11 (which is B).", ansType: "hex" },
-    { question: "Convert the hex value 11 into denary.", answer: "17", explanation: "(1 x 16) + (1 x 1) = 17", ansType: "den" },
-    { question: "Convert the hex value 2F into denary.", answer: "47", explanation: "(2 x 16) + (15 x 1) = 32 + 15 = 47", ansType: "den" },
-    { question: "Convert the hex value 1A into binary.", answer: "00011010", explanation: "1 = 0001, A (10) = 1010.", ansType: "bin" },
-    { question: "Convert the hex value 16 into binary.", answer: "00010110", explanation: "1 = 0001, 6 = 0110.", ansType: "bin" },
-    { question: "Convert the binary value 00110111 into hexadecimal.", answer: "37", explanation: "0011 = 3, 0111 = 7.", ansType: "hex" },
-    { question: "Convert the binary value 11011111 into hexadecimal.", answer: "DF", explanation: "1101 = 13 (D), 1111 = 15 (F).", ansType: "hex" },
-    { question: "Convert the denary value 19 into hexadecimal.", answer: "13", explanation: "19 / 16 = 1 remainder 3.", ansType: "hex" },
-    { question: "Convert the denary value 44 into hexadecimal.", answer: "2C", explanation: "44 / 16 = 2 remainder 12 (C).", ansType: "hex" },
-    { question: "Convert the hex value 19 into denary.", answer: "25", explanation: "(1 x 16) + 9 = 25", ansType: "den" },
-    { question: "Convert the hex value A3 into denary.", answer: "163", explanation: "(10 x 16) + 3 = 163", ansType: "den" },
-    { question: "Convert the binary value 00110101 into hexadecimal.", answer: "35", explanation: "0011 = 3, 0101 = 5.", ansType: "hex" },
-    { question: "Convert the binary value 11010111 into hexadecimal.", answer: "D7", explanation: "1101 = 13 (D), 0111 = 7.", ansType: "hex" },
-    { question: "Convert the hex value 1E into binary.", answer: "00011110", explanation: "1 = 0001, E (14) = 1110.", ansType: "bin" },
-    { question: "Convert the hex value FF into binary.", answer: "11111111", explanation: "F = 1111, F = 1111.", ansType: "bin" },
-    { question: "Convert the binary value 00001011 into denary.", answer: "11", explanation: "8 + 2 + 1 = 11", ansType: "den" },
-    { question: "Convert the binary value 01110110 into denary.", answer: "118", explanation: "64 + 32 + 16 + 4 + 2 = 118", ansType: "den" },
-    { question: "Convert the binary value 10010111 into denary.", answer: "151", explanation: "128 + 16 + 4 + 2 + 1 = 151", ansType: "den" },
-    { question: "Convert the binary value 11111111 into denary.", answer: "255", explanation: "128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255", ansType: "den" },
-    { question: "Convert the denary value 34 into binary.", answer: "00100010", explanation: "32 + 2 = 34", ansType: "bin" },
-    { question: "Convert the denary value 128 into binary.", answer: "10000000", explanation: "128 is the 8th bit.", ansType: "bin" },
-    { question: "Convert the denary value 149 into binary.", answer: "10010101", explanation: "128 + 16 + 4 + 1 = 149", ansType: "bin" },
-    { question: "Convert the denary value 201 into binary.", answer: "11001001", explanation: "128 + 64 + 8 + 1 = 201", ansType: "bin" },
-    { question: "Convert the binary value 1101 into denary.", answer: "13", explanation: "8 + 4 + 1 = 13", ansType: "den" },
-    { question: "Convert the binary value 1111 into denary.", answer: "15", explanation: "8 + 4 + 2 + 1 = 15", ansType: "den" },
-    { question: "Convert the binary value 00100110 into denary.", answer: "38", explanation: "32 + 4 + 2 = 38", ansType: "den" },
-    { question: "Convert the binary value 10110111 into denary.", answer: "183", explanation: "128 + 32 + 16 + 4 + 2 + 1 = 183", ansType: "den" },
-    { question: "Convert the denary value 18 into binary.", answer: "00010010", explanation: "16 + 2 = 18", ansType: "bin" },
-    { question: "Convert the denary value 57 into binary.", answer: "00111001", explanation: "32 + 16 + 8 + 1 = 57", ansType: "bin" },
-    { question: "Convert the denary value 163 into binary.", answer: "10100011", explanation: "128 + 32 + 2 + 1 = 163", ansType: "bin" },
-    { question: "Convert the denary value 255 into binary.", answer: "11111111", explanation: "All 8 bits are switched on.", ansType: "bin" }
-];
+// Removed Textbook Questions array and mode listeners
 
 let quizQuestions = [];
 let currentQuestionIndex = 0;
@@ -257,12 +209,28 @@ function generateQuestions(types, count) {
             qAns = num.toString(16).toUpperCase().padStart(2, '0');
             qExp = `Split ${binStr} into two 4-bit nibbles: ${binStr.substring(0,4)} and ${binStr.substring(4,8)}. Convert each to a single hex digit.`;
             aType = 'hex';
-        } else {
+        } else if (type === 'hexToBin') {
             const hexStr = num.toString(16).toUpperCase().padStart(2, '0');
             qText = `Convert the hexadecimal number ${hexStr} into binary (8 bits).`;
             qAns = num.toString(2).padStart(8, '0');
             qExp = `Convert each hex digit (${hexStr[0]} and ${hexStr[1]}) into a 4-bit binary nibble.`;
             aType = 'bin';
+        } else if (type === 'imageSize') {
+            const width = Math.floor(Math.random() * 90) + 10;
+            const height = Math.floor(Math.random() * 90) + 10;
+            const depth = [1, 2, 4, 8, 16, 24][Math.floor(Math.random() * 6)];
+            qText = `Calculate the file size in bits of a ${width}x${height} image with a colour depth of ${depth} bits.`;
+            qAns = (width * height * depth).toString();
+            qExp = `Image Size (bits) = Width x Height x Colour Depth = ${width} x ${height} x ${depth} = ${qAns} bits.`;
+            aType = 'den';
+        } else if (type === 'soundSize') {
+            const rate = [8000, 44100, 48000][Math.floor(Math.random() * 3)];
+            const depth = [8, 16, 24][Math.floor(Math.random() * 3)];
+            const duration = Math.floor(Math.random() * 10) + 1;
+            qText = `Calculate the file size in bits of a sound recorded at ${rate}Hz, with a ${depth}-bit sample resolution, lasting ${duration} seconds.`;
+            qAns = (rate * depth * duration).toString();
+            qExp = `Sound Size (bits) = Sample Rate x Bit Depth x Duration = ${rate} x ${depth} x ${duration} = ${qAns} bits.`;
+            aType = 'den';
         }
         questions.push({ question: qText, answer: qAns, explanation: qExp, ansType: aType });
     }
@@ -270,33 +238,27 @@ function generateQuestions(types, count) {
 }
 
 startQuizBtn.addEventListener('click', () => {
-    const isDynamic = document.getElementById('modeDynamic').checked;
+    const d2b = document.getElementById('typeDenToBin').checked;
+    const d2h = document.getElementById('typeDenToHex').checked;
+    const b2h = document.getElementById('typeBinToHex').checked;
+    const imgSize = document.getElementById('typeImageSize').checked;
+    const sndSize = document.getElementById('typeSoundSize').checked;
+    const count = parseInt(document.getElementById('questionCount').value);
 
-    if (isDynamic) {
-        const d2b = document.getElementById('typeDenToBin').checked;
-        const d2h = document.getElementById('typeDenToHex').checked;
-        const b2h = document.getElementById('typeBinToHex').checked;
-        const count = parseInt(document.getElementById('questionCount').value);
+    const types = [];
+    if (d2b) { types.push('denToBin', 'binToDen'); }
+    if (d2h) { types.push('denToHex', 'hexToDen'); }
+    if (b2h) { types.push('binToHex', 'hexToBin'); }
+    if (imgSize) { types.push('imageSize'); }
+    if (sndSize) { types.push('soundSize'); }
 
-        const types = [];
-        if (d2b) { types.push('denToBin', 'binToDen'); }
-        if (d2h) { types.push('denToHex', 'hexToDen'); }
-        if (b2h) { types.push('binToHex', 'hexToBin'); }
-
-        if (types.length === 0) {
-            document.getElementById('setupError').style.display = 'block';
-            return;
-        }
-
-        document.getElementById('setupError').style.display = 'none';
-        quizQuestions = generateQuestions(types, count);
-    } else {
-        document.getElementById('setupError').style.display = 'none';
-
-        const shuffled = [...textbookQuestions].sort(() => 0.5 - Math.random());
-        const count = parseInt(document.getElementById('questionCount').value);
-        quizQuestions = shuffled.slice(0, Math.min(count, shuffled.length));
+    if (types.length === 0) {
+        document.getElementById('setupError').style.display = 'block';
+        return;
     }
+
+    document.getElementById('setupError').style.display = 'none';
+    quizQuestions = generateQuestions(types, count);
 
     currentQuestionIndex = 0;
     score = 0;
@@ -392,3 +354,160 @@ document.getElementById('restartQuiz').addEventListener('click', () => {
     quizResults.classList.add('hidden-view');
     quizSetup.classList.remove('hidden-view');
 });
+
+// Sound Size Calculator
+const soundRateInput = document.getElementById('soundRateInput');
+const soundDepthInput = document.getElementById('soundDepthInput');
+const soundDurationInput = document.getElementById('soundDurationInput');
+const soundBitsOut = document.getElementById('soundBitsOut');
+const soundBytesOut = document.getElementById('soundBytesOut');
+const soundKbOut = document.getElementById('soundKbOut');
+
+function calculateSoundSize() {
+    const rate = parseInt(soundRateInput.value) || 0;
+    const depth = parseInt(soundDepthInput.value) || 0;
+    const duration = parseInt(soundDurationInput.value) || 0;
+    
+    const bits = rate * depth * duration;
+    const bytes = bits / 8;
+    const kb = bytes / 1000;
+
+    soundBitsOut.textContent = bits.toLocaleString();
+    soundBytesOut.textContent = bytes.toLocaleString();
+    soundKbOut.textContent = kb.toLocaleString();
+}
+
+[soundRateInput, soundDepthInput, soundDurationInput].forEach(input => {
+    input.addEventListener('input', calculateSoundSize);
+});
+
+// Image Size Calculator
+const imgWidthInput = document.getElementById('imgWidthInput');
+const imgHeightInput = document.getElementById('imgHeightInput');
+const imgDepthInput = document.getElementById('imgDepthInput');
+const imgBitsOut = document.getElementById('imgBitsOut');
+const imgBytesOut = document.getElementById('imgBytesOut');
+const imgKbOut = document.getElementById('imgKbOut');
+
+function calculateImageSize() {
+    const width = parseInt(imgWidthInput.value) || 0;
+    const height = parseInt(imgHeightInput.value) || 0;
+    const depth = parseInt(imgDepthInput.value) || 0;
+
+    const bits = width * height * depth;
+    const bytes = bits / 8;
+    const kb = bytes / 1000;
+
+    imgBitsOut.textContent = bits.toLocaleString();
+    imgBytesOut.textContent = bytes.toLocaleString();
+    imgKbOut.textContent = kb.toLocaleString();
+}
+
+[imgWidthInput, imgHeightInput, imgDepthInput].forEach(input => {
+    input.addEventListener('input', calculateImageSize);
+});
+
+// Populate ASCII Table
+const asciiTableBody = document.getElementById('asciiTableBody');
+if (asciiTableBody) {
+    let rowsHtml = '';
+    for (let i = 0; i <= 127; i++) {
+        const dec = i;
+        const hex = i.toString(16).toUpperCase().padStart(2, '0');
+        const bin = i.toString(2).padStart(8, '0');
+        let char = String.fromCharCode(i);
+        
+        if (i < 32 || i === 127) {
+            const controlNames = ["NUL", "SOH", "STX", "ETX", "EOT", "ENQ", "ACK", "BEL", "BS", "HT", "LF", "VT", "FF", "CR", "SO", "SI", "DLE", "DC1", "DC2", "DC3", "DC4", "NAK", "SYN", "ETB", "CAN", "EM", "SUB", "ESC", "FS", "GS", "RS", "US"];
+            char = i === 127 ? "DEL" : controlNames[i];
+        } else if (i === 32) {
+            char = "Space";
+        }
+        
+        rowsHtml += `<tr><td>${dec}</td><td>${hex}</td><td>${bin}</td><td>${char}</td></tr>`;
+    }
+    asciiTableBody.innerHTML = rowsHtml;
+}
+
+// Binary Shift Visual
+const shiftBitBtns = document.querySelectorAll('.shift-bit-btn');
+const shiftInput = document.getElementById('shiftInput');
+const shiftLeftBtn = document.getElementById('shiftLeftBtn');
+const shiftRightBtn = document.getElementById('shiftRightBtn');
+
+function updateShiftFromInput() {
+    let val = parseInt(shiftInput.value);
+    if (isNaN(val) || shiftInput.value === '') {
+        // Allow empty state while typing, but default calculations to 0
+        val = 0;
+    } else {
+        if (val > 255) {
+            val = 255;
+            shiftInput.value = 255;
+        } else if (val < 0) {
+            val = 0;
+            shiftInput.value = 0;
+        }
+    }
+    
+    const binStr = val.toString(2).padStart(8, '0');
+    shiftBitBtns.forEach((btn, index) => {
+        btn.textContent = binStr[index];
+        if (btn.textContent === '1') {
+            btn.classList.add('active-bit');
+        } else {
+            btn.classList.remove('active-bit');
+        }
+    });
+}
+
+function updateShiftDenary() {
+    let total = 0;
+    const bitValues = [128, 64, 32, 16, 8, 4, 2, 1];
+    shiftBitBtns.forEach((btn, index) => {
+        if (btn.textContent === '1') {
+            total += bitValues[index];
+            btn.classList.add('active-bit');
+        } else {
+            btn.classList.remove('active-bit');
+        }
+    });
+    if (shiftInput) {
+        shiftInput.value = total;
+    }
+}
+
+shiftBitBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.textContent = this.textContent === '0' ? '1' : '0';
+        updateShiftDenary();
+    });
+});
+
+if (shiftLeftBtn) {
+    shiftLeftBtn.addEventListener('click', () => {
+        for (let i = 0; i < 7; i++) {
+            shiftBitBtns[i].textContent = shiftBitBtns[i+1].textContent;
+        }
+        shiftBitBtns[7].textContent = '0';
+        updateShiftDenary();
+    });
+}
+
+if (shiftRightBtn) {
+    shiftRightBtn.addEventListener('click', () => {
+        for (let i = 7; i > 0; i--) {
+            shiftBitBtns[i].textContent = shiftBitBtns[i-1].textContent;
+        }
+        shiftBitBtns[0].textContent = '0';
+        updateShiftDenary();
+    });
+}
+
+if (shiftInput) {
+    shiftInput.addEventListener('input', updateShiftFromInput);
+}
+
+if (shiftBitBtns.length > 0) {
+    updateShiftDenary();
+}
