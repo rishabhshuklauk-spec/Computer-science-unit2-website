@@ -8,7 +8,78 @@
     --text-muted: #9c9293;
     --border-color: #3b3031;
     --radius: 8px;
+    --btn-text: #ffffff;
 }
+
+[data-theme="neon"] {
+    --bg-main: #0d0d0d;
+    --bg-card: #161616;
+    --bg-input: #222222;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --accent: #c6ff00;
+    --accent-hover: #a4d800;
+    --border-color: #333333;
+    --btn-text: #000000;
+}
+
+[data-theme="catppuccin-mocha"] {
+    --bg-main: #1e1e2e;
+    --bg-card: #181825;
+    --bg-input: #313244;
+    --text-main: #cdd6f4;
+    --text-muted: #a6adc8;
+    --accent: #cba6f7;
+    --accent-hover: #b4befe;
+    --border-color: #45475a;
+}
+
+[data-theme="catppuccin-latte"] {
+    --bg-main: #eff1f5;
+    --bg-card: #e6e9ef;
+    --bg-input: #ccd0da;
+    --text-main: #4c4f69;
+    --text-muted: #6c6f85;
+    --accent: #1e66f5;
+    --accent-hover: #7287fd;
+    --border-color: #bcc0cc;
+}
+
+[data-theme="github-dark"] {
+    --bg-main: #0d1117;
+    --bg-card: #161b22;
+    --bg-input: #21262d;
+    --text-main: #c9d1d9;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-hover: #79c0ff;
+    --border-color: #30363d;
+}
+
+[data-theme="github-light"] {
+    --bg-main: #ffffff;
+    --bg-card: #f6f8fa;
+    --bg-input: #eaecef;
+    --text-main: #24292e;
+    --text-muted: #586069;
+    --accent: #0969da;
+    --accent-hover: #0366d6;
+    --border-color: #d0d7de;
+}
+
+[data-theme="nord"] {
+    --bg-main: #2e3440;
+    --bg-card: #3b4252;
+    --bg-input: #434c5e;
+    --text-main: #d8dee9;
+    --text-muted: #e5e9f0;
+    --accent: #88c0d0;
+    --accent-hover: #81a1c1;
+    --border-color: #4c566a;
+    --btn-text: #1a1a1a;
+}
+
+
 
 body {
     font-family: 'Bahnschrift', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -51,7 +122,7 @@ nav {
     padding: 8px 16px;
     border-radius: var(--radius);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
 }
 
 .nav-btn:hover {
@@ -61,7 +132,7 @@ nav {
 
 .nav-btn.active {
     background-color: var(--accent);
-    color: #ffffff;
+    color: var(--btn-text);
 }
 
 main {
@@ -216,7 +287,7 @@ input[type="number"]:focus, input[type="text"]:focus, .code-area:focus {
 
 .radio-group input[type="radio"]:checked + .radio-label {
     background-color: var(--accent);
-    color: white;
+    color: var(--btn-text);
     border-color: var(--accent);
 }
 
@@ -256,7 +327,7 @@ input[type="number"]:focus, input[type="text"]:focus, .code-area:focus {
 
 input[type="checkbox"]:checked + .cb-btn {
     background-color: var(--accent);
-    color: white;
+    color: var(--btn-text);
     border-color: var(--accent);
 }
 
@@ -278,7 +349,7 @@ input[type="checkbox"]:checked + .cb-btn {
     flex: 1;
     padding: 12px;
     background-color: var(--accent);
-    color: white;
+    color: var(--btn-text);
     border: none;
     border-radius: var(--radius);
     font-size: 1rem;
@@ -428,7 +499,7 @@ input[type="checkbox"]:checked + .cb-btn {
 
 .bit-btn.active-bit, .hex-bit-btn.active-bit {
     background-color: var(--accent);
-    color: white;
+    color: var(--btn-text);
     border-color: var(--accent);
 }
 

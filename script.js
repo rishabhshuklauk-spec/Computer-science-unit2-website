@@ -1,3 +1,24 @@
+// Theme Selector Logic
+const themeSelector = document.getElementById('themeSelector');
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem('appTheme') || 'classic';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (themeSelector) {
+        themeSelector.value = savedTheme;
+    }
+}
+
+if (themeSelector) {
+    themeSelector.addEventListener('change', (e) => {
+        const theme = e.target.value;
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('appTheme', theme);
+    });
+}
+
+loadTheme();
+
 const btnHome = document.getElementById('btnHome');
 const btnAscii = document.getElementById('btnAscii');
 const btnConverter = document.getElementById('btnConverter');

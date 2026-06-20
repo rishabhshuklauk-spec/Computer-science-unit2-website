@@ -15,7 +15,16 @@
             <button id="btnConverter" class="nav-btn">Tools</button>
             <button id="btnQuiz" class="nav-btn">Quiz</button>
             <div style="width:1px; height:24px; background:rgba(255,255,255,0.3); margin:0 15px;"></div>
-            <a href="https://www.ocr.org.uk/Images/558027-specification-gcse-computer-science-j277.pdf" target="_blank" style="color:#ffffff; text-decoration:none; font-family:'Bahnschrift', sans-serif; font-size:1rem; padding:8px 12px; border-radius:4px; transition:background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">J277 Spec (External link)</a>
+            <select id="themeSelector" style="background:var(--bg-input); color:var(--text-main); border:1px solid var(--border-color); border-radius:var(--radius); padding:5px 10px; font-family:'Bahnschrift', sans-serif; cursor:pointer; outline:none; margin-right:15px;">
+                <option value="classic">Classic</option>
+                <option value="neon">Neon</option>
+                <option value="catppuccin-mocha">Catppuccin Mocha</option>
+                <option value="catppuccin-latte">Catppuccin Iced Latte</option>
+                <option value="github-dark">GitHub Dark</option>
+                <option value="github-light">GitHub Light</option>
+                <option value="nord">Nord</option>
+            </select>
+            <a href="https://www.ocr.org.uk/Images/558027-specification-gcse-computer-science-j277.pdf" target="_blank" style="color:var(--text-main); text-decoration:none; font-family:'Bahnschrift', sans-serif; font-size:1rem; padding:8px 12px; border-radius:4px; transition:background 0.3s;" onmouseover="this.style.background='rgba(128,128,128,0.2)'" onmouseout="this.style.background='transparent'">J277 Spec (External link)</a>
         </div>
     </nav>
 
