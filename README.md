@@ -7,4 +7,4 @@ A cool website tailored for the OCR J277 spec for computer science I have added 
 * **Binary Shifts:** Input a denary value and visually perform logical left and right shifts.
 * **Test Your Knowledge:** A quiz section that randomly generates image and sound file size calculation questions so you can test your skills.
 ## Website
-Link - https://steady-naiad-bd28db.netlify.app/
+Link - https://ocrunit2.netlify.app/
